@@ -73,29 +73,98 @@ document
   .getElementById("screen2Btn")
   .addEventListener("click", () => {
 
+    // QUESTION ELEMENTS
     const q1 =
-      document.getElementById("q1")
-      .value
-      .toLowerCase()
-      .trim();
+      document.getElementById("q1");
 
     const q2 =
-      document.getElementById("q2")
-      .value
-      .trim();
+      document.getElementById("q2");
 
-    if (
-      q1 === "blue" &&
-      q2 === "4"
-    ) {
+    // ANSWER VALUES
+    const q1Value =
+      q1.value
+        .toLowerCase()
+        .trim();
+
+    const q2Value =
+      q2.value
+        .trim();
+
+    // RESET STYLING
+    q1.classList.remove("input-error");
+    q2.classList.remove("input-error");
+
+    document
+      .getElementById("quizError")
+      .classList.add("hidden");
+
+    // TRACKING
+    let totalCorrect = 0;
+
+    let totalWrong = 0;
+
+    let wrongQuestions = [];
+
+    // VALIDATE QUESTION 1
+    if (q1Value === "blue") {
+
+      totalCorrect++;
+
+    } else {
+
+      totalWrong++;
+
+      wrongQuestions.push(
+        "Question 1"
+      );
+
+      q1.classList.add(
+        "input-error"
+      );
+
+    }
+
+    // VALIDATE QUESTION 2
+    if (q2Value === "4") {
+
+      totalCorrect++;
+
+    } else {
+
+      totalWrong++;
+
+      wrongQuestions.push(
+        "Question 2"
+      );
+
+      q2.classList.add(
+        "input-error"
+      );
+
+    }
+
+    // FINAL RESULT
+    if (totalWrong === 0) {
 
       showScreen("screen3");
 
     } else {
 
-      alert(
-        "Incorrect answers."
-      );
+      // SHOW ERROR MESSAGE
+      document
+        .getElementById("quizError")
+        .classList.remove("hidden");
+
+      // TRACK RESULTS
+      console.log({
+
+        totalCorrect,
+
+        totalWrong,
+
+        wrongQuestions
+
+      });
 
     }
 
