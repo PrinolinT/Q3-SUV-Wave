@@ -203,21 +203,69 @@ button {
 
 }
 
-.wheel-placeholder {
+.wheel-wrapper {
 
-  height: 250px;
+  position: relative;
+
+  width: 320px;
+
+  height: 320px;
+
+  margin: 30px auto;
+
+}
+
+.wheel {
+
+  width: 100%;
+
+  height: 100%;
 
   border-radius: 50%;
 
-  border: 6px solid white;
+  overflow: hidden;
 
-  display: flex;
+  transition:
+    transform 4s cubic-bezier(
+      0.17,
+      0.67,
+      0.12,
+      0.99
+    );
 
-  align-items: center;
+}
 
-  justify-content: center;
+.wheel img {
 
-  font-size: 24px;
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: contain;
+
+}
+
+.pointer {
+
+  position: absolute;
+
+  top: -20px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 0;
+
+  height: 0;
+
+  border-left: 18px solid transparent;
+
+  border-right: 18px solid transparent;
+
+  border-top: 35px solid #f7d117;
+
+  z-index: 10;
 
 }
 
