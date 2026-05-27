@@ -163,24 +163,21 @@ document
 const termsModal =
   document.getElementById("termsModal");
 
-const termsCheck =
-  document.getElementById("termsCheck");
-
 document
   .getElementById("openTerms")
-  .addEventListener("click", () => {
+  .addEventListener("click", (e) => {
+
+    e.preventDefault();
+
+    e.stopPropagation();
 
     termsModal.classList.add("active");
 
   });
 
 document
-  .getElementById("acceptTerms")
+  .getElementById("closeTerms")
   .addEventListener("click", () => {
-
-    termsCheck.disabled = false;
-
-    termsCheck.checked = true;
 
     termsModal.classList.remove("active");
 
