@@ -386,3 +386,31 @@ button {
   }
 
 }
+
+.option-group {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  background: rgba(255,255,255,0.08);
+
+  padding: 12px;
+
+  border-radius: 10px;
+
+}
+
+.option-group input {
+
+  width: auto;
+
+}
+
+.question-error {
+
+  border: 2px solid red;
+
+}
