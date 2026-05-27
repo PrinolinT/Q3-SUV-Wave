@@ -327,6 +327,36 @@ button {
 
 }
 
+#resultContainer {
+
+  text-align: center;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 15px;
+
+}
+
+#resultText {
+
+  text-align: center;
+
+}
+
+#screen5 {
+
+  text-align: center;
+
+  align-items: center;
+
+}
+
 @keyframes fadeIn {
 
   from {
