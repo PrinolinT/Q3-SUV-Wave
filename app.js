@@ -73,75 +73,74 @@ document
   .getElementById("screen2Btn")
   .addEventListener("click", () => {
 
-    // QUESTION ELEMENTS
-    const q1 =
-      document.getElementById("q1");
+    // CORRECT ANSWERS
+    const answers = {
 
-    const q2 =
-      document.getElementById("q2");
+      q1: "A/T and M/T",
+      q2: "Mud self-cleaning",
+      q3: "S-Block",
+      q4: "Caterpillar Block",
+      q5: "Water evacuation channels",
+      q6: "Randomised block sizing"
 
-    // ANSWER VALUES
-    const q1Value =
-      q1.value
-        .toLowerCase()
-        .trim();
+    };
 
-    const q2Value =
-      q2.value
-        .trim();
-
-    // RESET STYLING
-    q1.classList.remove("input-error");
-    q2.classList.remove("input-error");
-
-    document
-      .getElementById("quizError")
-      .classList.add("hidden");
-
-    // TRACKING
     let totalCorrect = 0;
 
     let totalWrong = 0;
 
     let wrongQuestions = [];
 
-    // VALIDATE QUESTION 1
-    if (q1Value === "blue") {
+    // RESET ERRORS
+    document
+      .querySelectorAll(".question-group")
+      .forEach(group => {
 
-      totalCorrect++;
+        group.classList.remove(
+          "question-error"
+        );
 
-    } else {
+      });
 
-      totalWrong++;
+    document
+      .getElementById("quizError")
+      .classList.add("hidden");
 
-      wrongQuestions.push(
-        "Question 1"
-      );
+    // VALIDATE QUESTIONS
+    Object.keys(answers).forEach(
+      question => {
 
-      q1.classList.add(
-        "input-error"
-      );
+        const selected =
+          document.querySelector(
+            `input[name="${question}"]:checked`
+          );
 
-    }
+        if (
+          selected &&
+          selected.value === answers[question]
+        ) {
 
-    // VALIDATE QUESTION 2
-    if (q2Value === "4") {
+          totalCorrect++;
 
-      totalCorrect++;
+        } else {
 
-    } else {
+          totalWrong++;
 
-      totalWrong++;
+          wrongQuestions.push(question);
 
-      wrongQuestions.push(
-        "Question 2"
-      );
+          document
+            .querySelector(
+              `input[name="${question}"]`
+            )
+            .closest(".question-group")
+            .classList.add(
+              "question-error"
+            );
 
-      q2.classList.add(
-        "input-error"
-      );
+        }
 
-    }
+      }
+    );
 
     // FINAL RESULT
     if (totalWrong === 0) {
@@ -150,12 +149,10 @@ document
 
     } else {
 
-      // SHOW ERROR MESSAGE
       document
         .getElementById("quizError")
         .classList.remove("hidden");
 
-      // TRACK RESULTS
       console.log({
 
         totalCorrect,
@@ -297,6 +294,10 @@ document
 
     document.getElementById("q1").value = "";
     document.getElementById("q2").value = "";
+    document.getElementById("q3").value = "";
+    document.getElementById("q4").value = "";
+    document.getElementById("q5").value = "";
+    document.getElementById("q6").value = "";
 
     // RESET TERMS
     document.getElementById("termsCheck").checked = false;
