@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0"/>
+
+  <title>Dunlop Spin & Win</title>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <!-- Background Overlay -->
+
+  <div class="background-overlay"></div>
+
+  <!-- Main App -->
+
+  <div class="app-container">
+
+    <!-- Logo -->
+
+    <div class="logo-container">
+
+      <img
+        src="assets/dunlop-logo.png"
+        alt="Dunlop Logo"
+        class="logo"
+      >
+
+    </div>
+
+    <!-- SCREEN 1 -->
+    <!-- Customer Details -->
+
+    <section id="screen1" class="screen active">
+
+      <h1>Spin & Win</h1>
+
+      <p class="subtitle">
+        Enter your details below to participate.
+      </p>
+
+      <input
+        type="text"
+        id="name"
+        placeholder="Full Name"
+      >
+
+      <input
+        type="email"
+        id="email"
+        placeholder="Email Address"
+      >
+
+      <input
+        type="tel"
+        id="phone"
+        placeholder="Mobile Number"
+      >
+
+      <!-- Terms -->
+
+      <div class="checkbox-group">
+
+        <input
+          type="checkbox"
+          id="termsCheck"
+        >
+
+        <label for="termsCheck">
+
+          I accept the
+          <span id="openTerms">
+            Terms, POPIA & Indemnity
+          </span>
+
+        </label>
+
+      </div>
+
+      <button id="screen1Btn">
+        CONTINUE
+      </button>
+
+    </section>
+
+    <!-- SCREEN 2 -->
+    <!-- Questions -->
+
+    <section id="screen2" class="screen hidden">
+
+      <h2>Answer The Questions</h2>
+
+      <div class="question-group">
+
+        <label>
+          What colour is the sky?
+        </label>
+
+        <input type="text" id="q1">
+
+      </div>
+
+      <div class="question-group">
+
+        <label>
+          What is 2 + 2?
+        </label>
+
+        <input type="text" id="q2">
+
+      </div>
+
+      <button id="screen2Btn">
+        SUBMIT ANSWERS
+      </button>
+
+    </section>
+
+    <!-- SCREEN 3 -->
+    <!-- Wheel -->
+
+    <section id="screen3" class="screen hidden">
+
+      <h2>Spin The Wheel</h2>
+
+      <div class="wheel-placeholder">
+
+        🎡 WHEEL GOES HERE
+
+      </div>
+
+      <button id="spinBtn">
+        SPIN NOW
+      </button>
+
+    </section>
+
+    <!-- SCREEN 4 -->
+    <!-- Results -->
+
+    <section id="screen4" class="screen hidden">
+
+      <div id="resultContainer">
+
+        <img
+          id="prizeImage"
+          class="hidden"
+          src=""
+          alt="Prize"
+        >
+
+        <h2 id="resultTitle"></h2>
+
+        <p id="resultText"></p>
+
+      </div>
+
+      <button id="screen4Btn">
+        CONTINUE
+      </button>
+
+    </section>
+
+    <!-- SCREEN 5 -->
+    <!-- Thank You -->
+
+    <section id="screen5" class="screen hidden">
+
+      <h2>Thank You!</h2>
+
+      <p>
+        Thank you for entering our campaign.
+      </p>
+
+      <p>
+        Winners will be contacted directly.
+      </p>
+
+    </section>
+
+  </div>
+
+  <!-- TERMS MODAL -->
+
+  <div id="termsModal" class="modal hidden">
+
+    <div class="modal-content">
+
+      <h2>
+        Terms, POPIA & Indemnity
+      </h2>
+
+      <div class="modal-scroll">
+
+        <p>
+          Add your full terms and conditions here.
+        </p>
+
+        <p>
+          Add POPIA consent wording here.
+        </p>
+
+        <p>
+          Add indemnity wording here.
+        </p>
+
+      </div>
+
+      <button id="closeTerms">
+        CLOSE
+      </button>
+
+    </div>
+
+  </div>
+
+  <script type="module" src="app.js"></script>
+
+</body>
+</html>
