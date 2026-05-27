@@ -214,3 +214,14 @@ document
     termsModal.classList.remove("active");
 
   });
+
+/* CLOSE SESSION */
+
+document
+  .getElementById("closeSessionBtn")
+  .addEventListener("click", () => {
+
+    window.location.href =
+      "https://www.dunloptyres.co.za";
+
+  });
