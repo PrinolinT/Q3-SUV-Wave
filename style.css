@@ -1,0 +1,264 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+
+  font-family: Arial, sans-serif;
+
+  background-image:
+    url('assets/background.jpg');
+
+  background-size: cover;
+
+  background-position: center;
+
+  min-height: 100vh;
+
+  color: white;
+
+  overflow-x: hidden;
+
+}
+
+.background-overlay {
+
+  position: fixed;
+
+  inset: 0;
+
+  background:
+    rgba(0,0,0,0.65);
+
+  z-index: 1;
+
+}
+
+.app-container {
+
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+
+  max-width: 500px;
+
+  margin: auto;
+
+  min-height: 100vh;
+
+  padding: 20px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+}
+
+.logo-container {
+
+  text-align: center;
+
+  margin-bottom: 30px;
+
+}
+
+.logo {
+
+  width: 180px;
+
+  max-width: 80%;
+
+}
+
+.screen {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 18px;
+
+  animation: fadeIn 0.4s ease;
+
+}
+
+.hidden {
+  display: none;
+}
+
+h1, h2 {
+
+  text-align: center;
+
+}
+
+.subtitle {
+
+  text-align: center;
+
+  opacity: 0.9;
+
+}
+
+input {
+
+  width: 100%;
+
+  padding: 16px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  font-size: 16px;
+
+}
+
+button {
+
+  padding: 16px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: #f7d117;
+
+  color: black;
+
+  font-weight: bold;
+
+  font-size: 16px;
+
+  cursor: pointer;
+
+}
+
+.checkbox-group {
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 10px;
+
+}
+
+.checkbox-group input {
+
+  width: auto;
+
+  margin-top: 3px;
+
+}
+
+#openTerms {
+
+  text-decoration: underline;
+
+  cursor: pointer;
+
+}
+
+.question-group {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+
+}
+
+.wheel-placeholder {
+
+  height: 250px;
+
+  border-radius: 50%;
+
+  border: 6px solid white;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 24px;
+
+}
+
+#prizeImage {
+
+  width: 100%;
+
+  border-radius: 16px;
+
+}
+
+.modal {
+
+  position: fixed;
+
+  inset: 0;
+
+  background:
+    rgba(0,0,0,0.8);
+
+  z-index: 999;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 20px;
+
+}
+
+.modal-content {
+
+  background: white;
+
+  color: black;
+
+  border-radius: 16px;
+
+  padding: 20px;
+
+  width: 100%;
+
+  max-width: 500px;
+
+}
+
+.modal-scroll {
+
+  max-height: 300px;
+
+  overflow-y: auto;
+
+  margin: 20px 0;
+
+}
+
+@keyframes fadeIn {
+
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
