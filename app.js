@@ -1,3 +1,5 @@
+console.log("JS LOADED");
+
 const screens = {
 
   screen1:
