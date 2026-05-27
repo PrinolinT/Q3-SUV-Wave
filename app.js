@@ -103,9 +103,21 @@ document
 
 /* SCREEN 3 */
 
-document
-  .getElementById("spinBtn")
-  .addEventListener("click", () => {
+const spinBtn =
+  document.getElementById("spinBtn");
+
+const wheel =
+  document.getElementById("spinWheel");
+
+let spinning = false;
+
+spinBtn.addEventListener(
+  "click",
+  () => {
+
+    if (spinning) return;
+
+    spinning = true;
 
     const winner =
       Math.random() < 0.3;
@@ -119,34 +131,54 @@ document
     const prizeImage =
       document.getElementById("prizeImage");
 
-    if (winner) {
+    // RANDOM SPIN ANGLE
+    const rotation =
+      3600 + Math.floor(Math.random() * 360);
 
-      resultTitle.innerHTML =
-        "🎉 Congratulations!";
+    // SPIN ANIMATION
+    wheel.style.transform =
+      `rotate(${rotation}deg)`;
 
-      resultText.innerHTML =
-        "You won an Air Fryer.";
+    // WAIT FOR SPIN TO FINISH
+    setTimeout(() => {
 
-      prizeImage.src =
-        "assets/airfryer.jpg";
+      if (winner) {
 
-      prizeImage.classList.remove("hidden");
+        resultTitle.innerHTML =
+          "🎉 Congratulations!";
 
-    } else {
+        resultText.innerHTML =
+          "You won an Air Fryer.";
 
-      resultTitle.innerHTML =
-        "You're In The Lucky Draw!";
+        prizeImage.src =
+          "assets/airfryer.jpg";
 
-      resultText.innerHTML =
-        "You did not win an instant prize, but have been entered into our lucky draw.";
+        prizeImage.classList.remove(
+          "hidden"
+        );
 
-      prizeImage.classList.add("hidden");
+      } else {
 
-    }
+        resultTitle.innerHTML =
+          "You're In The Lucky Draw!";
 
-    showScreen("screen4");
+        resultText.innerHTML =
+          "You did not win an instant prize, but have been entered into our lucky draw.";
 
-  });
+        prizeImage.classList.add(
+          "hidden"
+        );
+
+      }
+
+      spinning = false;
+
+      showScreen("screen4");
+
+    }, 4000);
+
+  }
+);
 
 /* SCREEN 4 */
 
