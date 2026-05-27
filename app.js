@@ -149,11 +149,26 @@ if (totalWrong === 0) {
 
 } else {
 
-  alert(
-    "Unfortunately one or more answers were incorrect. Your session has ended."
-  );
+  // SHOW ERROR MESSAGE
+  document
+    .getElementById("quizError")
+    .classList.remove("hidden");
 
-  resetSession();
+  // DISABLE BUTTON
+  document
+    .getElementById("screen2Btn")
+    .disabled = true;
+
+  // AUTO RESET AFTER 3 SECONDS
+  setTimeout(() => {
+
+    document
+      .getElementById("screen2Btn")
+      .disabled = false;
+
+    resetSession();
+
+  }, 3000);
 
 }
 
