@@ -221,7 +221,32 @@ document
   .getElementById("closeSessionBtn")
   .addEventListener("click", () => {
 
-    window.location.href =
-      "https://www.dunloptyres.co.za";
+    // CLEAR FORM FIELDS
+    document.getElementById("name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("phone").value = "";
+
+    document.getElementById("q1").value = "";
+    document.getElementById("q2").value = "";
+
+    // RESET TERMS
+    document.getElementById("termsCheck").checked = false;
+
+    // RESET WHEEL ROTATION
+    document.getElementById("spinWheel")
+      .style.transform = "rotate(0deg)";
+
+    // RESET RESULT CONTENT
+    document.getElementById("resultTitle")
+      .innerHTML = "";
+
+    document.getElementById("resultText")
+      .innerHTML = "";
+
+    document.getElementById("prizeImage")
+      .classList.add("hidden");
+
+    // RETURN TO HOME SCREEN
+    showScreen("screen1");
 
   });
