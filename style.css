@@ -120,6 +120,22 @@ input {
 
 }
 
+.input-error {
+
+  border: 3px solid red;
+
+}
+
+.error-text {
+
+  color: red;
+
+  font-size: 14px;
+
+  text-align: center;
+
+}
+
 button {
 
   padding: 16px;
