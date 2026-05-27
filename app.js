@@ -143,27 +143,19 @@ document
     );
 
     // FINAL RESULT
-    if (totalWrong === 0) {
+if (totalWrong === 0) {
 
-      showScreen("screen3");
+  showScreen("screen3");
 
-    } else {
+} else {
 
-      document
-        .getElementById("quizError")
-        .classList.remove("hidden");
+  alert(
+    "Unfortunately one or more answers were incorrect. Your session has ended."
+  );
 
-      console.log({
+  resetSession();
 
-        totalCorrect,
-
-        totalWrong,
-
-        wrongQuestions
-
-      });
-
-    }
+}
 
   });
 
@@ -281,42 +273,68 @@ document
 
   });
 
-/* CLOSE SESSION */
+/* RESET SESSION FUNCTION */
+
+function resetSession() {
+
+  // CLEAR CUSTOMER DETAILS
+  document.getElementById("name").value = "";
+  document.getElementById("email").value = "";
+  document.getElementById("phone").value = "";
+
+  // RESET TERMS
+  document.getElementById("termsCheck").checked = false;
+
+  // CLEAR ALL RADIO BUTTONS
+  document
+    .querySelectorAll('input[type="radio"]')
+    .forEach(radio => {
+
+      radio.checked = false;
+
+    });
+
+  // REMOVE QUESTION ERROR STATES
+  document
+    .querySelectorAll(".question-group")
+    .forEach(group => {
+
+      group.classList.remove(
+        "question-error"
+      );
+
+    });
+
+  // HIDE QUIZ ERROR
+  document
+    .getElementById("quizError")
+    .classList.add("hidden");
+
+  // RESET WHEEL
+  document.getElementById("spinWheel")
+    .style.transform = "rotate(0deg)";
+
+  // RESET RESULTS
+  document.getElementById("resultTitle")
+    .innerHTML = "";
+
+  document.getElementById("resultText")
+    .innerHTML = "";
+
+  document.getElementById("prizeImage")
+    .classList.add("hidden");
+
+  // RETURN TO SCREEN 1
+  showScreen("screen1");
+
+}
+
+/* CLOSE SESSION BUTTON */
 
 document
   .getElementById("closeSessionBtn")
   .addEventListener("click", () => {
 
-    // CLEAR FORM FIELDS
-    document.getElementById("name").value = "";
-    document.getElementById("email").value = "";
-    document.getElementById("phone").value = "";
-
-    document.getElementById("q1").value = "";
-    document.getElementById("q2").value = "";
-    document.getElementById("q3").value = "";
-    document.getElementById("q4").value = "";
-    document.getElementById("q5").value = "";
-    document.getElementById("q6").value = "";
-
-    // RESET TERMS
-    document.getElementById("termsCheck").checked = false;
-
-    // RESET WHEEL ROTATION
-    document.getElementById("spinWheel")
-      .style.transform = "rotate(0deg)";
-
-    // RESET RESULT CONTENT
-    document.getElementById("resultTitle")
-      .innerHTML = "";
-
-    document.getElementById("resultText")
-      .innerHTML = "";
-
-    document.getElementById("prizeImage")
-      .classList.add("hidden");
-
-    // RETURN TO HOME SCREEN
-    showScreen("screen1");
+    resetSession();
 
   });
