@@ -166,6 +166,28 @@ button {
 
 }
 
+.terms-link {
+
+  text-decoration: underline;
+
+  cursor: pointer;
+
+  color: #f7d117;
+
+}
+
+.modal-scroll {
+
+  max-height: 300px;
+
+  overflow-y: auto;
+
+  margin: 20px 0;
+
+  padding-right: 10px;
+
+}
+
 .question-group {
 
   display: flex;
