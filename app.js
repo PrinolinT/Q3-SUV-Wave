@@ -163,6 +163,9 @@ document
 const termsModal =
   document.getElementById("termsModal");
 
+const termsCheck =
+  document.getElementById("termsCheck");
+
 document
   .getElementById("openTerms")
   .addEventListener("click", () => {
@@ -172,8 +175,12 @@ document
   });
 
 document
-  .getElementById("closeTerms")
+  .getElementById("acceptTerms")
   .addEventListener("click", () => {
+
+    termsCheck.disabled = false;
+
+    termsCheck.checked = true;
 
     termsModal.classList.remove("active");
 
