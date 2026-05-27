@@ -167,7 +167,7 @@ document
   .getElementById("openTerms")
   .addEventListener("click", () => {
 
-    termsModal.classList.remove("hidden");
+    termsModal.classList.add("active");
 
   });
 
@@ -175,6 +175,6 @@ document
   .getElementById("closeTerms")
   .addEventListener("click", () => {
 
-    termsModal.classList.add("hidden");
+    termsModal.classList.remove("active");
 
   });
