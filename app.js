@@ -57,7 +57,7 @@ const salesRep =
   !accnumber ||
   !phonenumber ||
   !salesRep ||
-  !termsAccepted
+!document.getElementById("termsCheck").checked
 ) {
 
       alert(
