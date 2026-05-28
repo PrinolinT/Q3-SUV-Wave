@@ -206,6 +206,43 @@ const wheel =
 
 let spinning = false;
 
+const segmentAngles = {
+
+  airfryer: 30,
+  luckydraw: 90,
+  coolerbox: 150,
+  braaiset: 270
+
+};
+
+function testSpin(outcome) {
+
+  if (spinning) return;
+
+  spinning = true;
+
+  const wheel =
+    document.getElementById("spinWheel");
+
+  const baseRotation = 3600;
+
+  const targetAngle =
+    segmentAngles[outcome];
+
+  const rotation =
+    baseRotation + targetAngle;
+
+  wheel.style.transform =
+    `rotate(${rotation}deg)`;
+
+  setTimeout(() => {
+
+    spinning = false;
+
+  }, 4000);
+
+}
+
 spinBtn.addEventListener(
   "click",
   () => {
