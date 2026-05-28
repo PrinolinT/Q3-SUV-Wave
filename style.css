@@ -286,6 +286,86 @@ button {
 
 }
 
+.wheel-segment {
+
+  position: absolute;
+
+  z-index: 20;
+
+  font-size: 28px;
+
+  font-weight: bold;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 50px;
+
+  height: 50px;
+
+}
+
+/* TOP */
+.seg1 {
+
+  top: 5px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+}
+
+/* TOP RIGHT */
+.seg2 {
+
+  top: 55px;
+
+  right: 20px;
+
+}
+
+/* BOTTOM RIGHT */
+.seg3 {
+
+  bottom: 55px;
+
+  right: 20px;
+
+}
+
+/* BOTTOM */
+.seg4 {
+
+  bottom: 5px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+}
+
+/* BOTTOM LEFT */
+.seg5 {
+
+  bottom: 55px;
+
+  left: 20px;
+
+}
+
+/* TOP LEFT */
+.seg6 {
+
+  top: 55px;
+
+  left: 20px;
+
+}
+
 #prizeImage {
 
   width: 100%;
