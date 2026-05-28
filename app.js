@@ -222,7 +222,7 @@ const rotation =
   baseRotation + targetAngle + pointerOffset;
 
   wheel.style.transform =
-    `rotate(${rotation}deg)`;
+  `rotate(${rotation - 60}deg)`;
 
   setTimeout(() => {
 
@@ -430,7 +430,7 @@ document.getElementById("salesRep").value = "";
 
   // RESET WHEEL
   document.getElementById("spinWheel")
-    .style.transform = "rotate(0deg)";
+    .style.transform = "rotate(-60deg)";
 
   // RESET RESULTS
   document.getElementById("resultTitle")
