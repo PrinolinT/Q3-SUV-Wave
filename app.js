@@ -167,30 +167,19 @@ if (totalWrong === 0) {
     "CLOSE SESSION";
 
   // REMOVE OLD CLICK EVENTS
-  const newButton =
-    screen2Btn.cloneNode(true);
+  screen2Btn.innerHTML =
+  "CLOSE SESSION";
 
-  screen2Btn.parentNode.replaceChild(
-    newButton,
-    screen2Btn
-  );
+screen2Btn.onclick = () => {
 
-  // NEW CLOSE SESSION ACTION
-  newButton.addEventListener(
-    "click",
-    () => {
+  screen2Btn.innerHTML =
+    "SUBMIT ANSWERS";
 
-      // RESET BUTTON TEXT
-      newButton.innerHTML =
-        "SUBMIT ANSWERS";
+  resetSession();
 
-      resetSession();
+  location.reload();
 
-      // RESTORE ORIGINAL PAGE
-      location.reload();
-
-    }
-  );
+};
 
 }
 
