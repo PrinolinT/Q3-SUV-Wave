@@ -196,7 +196,7 @@ let spinning = false;
 const segmentAngles = {
 
   airfryer: 75,
-  luckydraw: 195,
+  luckydraw: 225,
   coolerbox: 135,
   braaiset: 255
 
