@@ -37,23 +37,28 @@ document
   .addEventListener("click", () => {
 
     const name =
-      document.getElementById("name").value;
+  document.getElementById("name").value;
 
-    const email =
-      document.getElementById("email").value;
+const storename =
+  document.getElementById("storename").value;
 
-    const phone =
-      document.getElementById("phone").value;
+const accnumber =
+  document.getElementById("accnumber").value;
 
-    const termsAccepted =
-      document.getElementById("termsCheck").checked;
+const phonenumber =
+  document.getElementById("phonenumber").value;
+
+const salesRep =
+  document.getElementById("salesRep").value;
 
     if (
-      !name ||
-      !email ||
-      !phone ||
-      !termsAccepted
-    ) {
+  !name ||
+  !storename ||
+  !accnumber ||
+  !phonenumber ||
+  !salesRep ||
+  !termsAccepted
+) {
 
       alert(
         "Please complete all fields."
@@ -154,21 +159,38 @@ if (totalWrong === 0) {
     .getElementById("quizError")
     .classList.remove("hidden");
 
-  // DISABLE BUTTON
-  document
-    .getElementById("screen2Btn")
-    .disabled = true;
+  // CHANGE BUTTON TO CLOSE SESSION
+  const screen2Btn =
+    document.getElementById("screen2Btn");
 
-  // AUTO RESET AFTER 3 SECONDS
-  setTimeout(() => {
+  screen2Btn.innerHTML =
+    "CLOSE SESSION";
 
-    document
-      .getElementById("screen2Btn")
-      .disabled = false;
+  // REMOVE OLD CLICK EVENTS
+  const newButton =
+    screen2Btn.cloneNode(true);
 
-    resetSession();
+  screen2Btn.parentNode.replaceChild(
+    newButton,
+    screen2Btn
+  );
 
-  }, 3000);
+  // NEW CLOSE SESSION ACTION
+  newButton.addEventListener(
+    "click",
+    () => {
+
+      // RESET BUTTON TEXT
+      newButton.innerHTML =
+        "SUBMIT ANSWERS";
+
+      resetSession();
+
+      // RESTORE ORIGINAL PAGE
+      location.reload();
+
+    }
+  );
 
 }
 
@@ -294,8 +316,10 @@ function resetSession() {
 
   // CLEAR CUSTOMER DETAILS
   document.getElementById("name").value = "";
-  document.getElementById("email").value = "";
-  document.getElementById("phone").value = "";
+  document.getElementById("storename").value = "";
+document.getElementById("accnumber").value = "";
+document.getElementById("phonenumber").value = "";
+document.getElementById("salesRep").value = "";
 
   // RESET TERMS
   document.getElementById("termsCheck").checked = false;
