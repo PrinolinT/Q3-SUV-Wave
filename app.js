@@ -177,8 +177,6 @@ screen2Btn.onclick = () => {
 
   resetSession();
 
-  location.reload();
-
 };
 
 }
@@ -197,10 +195,10 @@ let spinning = false;
 
 const segmentAngles = {
 
-  airfryer: 30,
-  luckydraw: 90,
-  coolerbox: 150,
-  braaiset: 270
+  airfryer: 15,
+  luckydraw: 75,
+  coolerbox: 135,
+  braaiset: 255
 
 };
 
@@ -396,10 +394,13 @@ document.getElementById("salesRep").value = "";
 
 /* CLOSE SESSION BUTTON */
 
-document
-  .getElementById("closeSessionBtn")
-  .addEventListener("click", () => {
+const closeSessionBtn =
+  document.getElementById(
+    "closeSessionBtn"
+  );
 
-    resetSession();
+closeSessionBtn.onclick = () => {
 
-  });
+  resetSession();
+
+};
