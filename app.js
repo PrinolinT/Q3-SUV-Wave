@@ -238,9 +238,6 @@ spinBtn.addEventListener(
 
     spinning = true;
 
-    const winner =
-      Math.random() < 0.3;
-
     const resultTitle =
       document.getElementById("resultTitle");
 
@@ -250,9 +247,35 @@ spinBtn.addEventListener(
     const prizeImage =
       document.getElementById("prizeImage");
 
-    // RANDOM SPIN ANGLE
-    const rotation =
-      3600 + Math.floor(Math.random() * 360);
+    const random = Math.random();
+
+let outcome;
+
+if (random < 0.05) {
+
+  outcome = "airfryer";
+
+} else if (random < 0.10) {
+
+  outcome = "coolerbox";
+
+} else if (random < 0.15) {
+
+  outcome = "braaiset";
+
+} else {
+
+  outcome = "luckydraw";
+
+}
+
+const baseRotation = 3600;
+
+const targetAngle =
+  segmentAngles[outcome];
+
+const rotation =
+  baseRotation + targetAngle;
 
     // SPIN ANIMATION
     wheel.style.transform =
@@ -261,34 +284,58 @@ spinBtn.addEventListener(
     // WAIT FOR SPIN TO FINISH
     setTimeout(() => {
 
-      if (winner) {
+      if (outcome === "airfryer") {
 
-        resultTitle.innerHTML =
-          "🎉 Congratulations!";
+  resultTitle.innerHTML =
+    "🎉 Congratulations!";
 
-        resultText.innerHTML =
-          "You won an Air Fryer.";
+  resultText.innerHTML =
+    "You won an Air Fryer instantly.<br><br>You have also been entered into the grand prize lucky draw.";
 
-        prizeImage.src =
-          "assets/airfryer.jpg";
+  prizeImage.src =
+    "assets/airfryer.jpg";
 
-        prizeImage.classList.remove(
-          "hidden"
-        );
+  prizeImage.classList.remove(
+    "hidden"
+  );
 
-      } else {
+} else if (outcome === "coolerbox") {
 
-        resultTitle.innerHTML =
-          "You're In The Lucky Draw!";
+  resultTitle.innerHTML =
+    "🎉 Congratulations!";
 
-        resultText.innerHTML =
-          "You did not win an instant prize, but have been entered into our lucky draw.";
+  resultText.innerHTML =
+    "You won a Cooler Box instantly.<br><br>You have also been entered into the grand prize lucky draw.";
 
-        prizeImage.classList.add(
-          "hidden"
-        );
+  prizeImage.classList.add(
+    "hidden"
+  );
 
-      }
+} else if (outcome === "braaiset") {
+
+  resultTitle.innerHTML =
+    "🎉 Congratulations!";
+
+  resultText.innerHTML =
+    "You won a Braai Set instantly.<br><br>You have also been entered into the grand prize lucky draw.";
+
+  prizeImage.classList.add(
+    "hidden"
+  );
+
+} else {
+
+  resultTitle.innerHTML =
+    "You're In The Lucky Draw!";
+
+  resultText.innerHTML =
+    "You did not win an instant prize today, but you have been entered into the grand prize lucky draw.";
+
+  prizeImage.classList.add(
+    "hidden"
+  );
+
+}
 
       spinning = false;
 
@@ -327,10 +374,16 @@ document
   });
 
 document
-  .getElementById("closeTerms")
+  .getElementById("acceptTerms")
   .addEventListener("click", () => {
 
-    termsModal.classList.remove("active");
+    document.getElementById(
+      "termsCheck"
+    ).checked = true;
+
+    termsModal.classList.remove(
+      "active"
+    );
 
   });
 
