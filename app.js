@@ -216,8 +216,10 @@ function testSpin(outcome) {
   const targetAngle =
     segmentAngles[outcome];
 
-  const rotation =
-    baseRotation + targetAngle;
+  const pointerOffset = 12;
+
+const rotation =
+  baseRotation + targetAngle + pointerOffset;
 
   wheel.style.transform =
     `rotate(${rotation}deg)`;
