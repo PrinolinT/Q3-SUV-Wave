@@ -343,10 +343,8 @@ button {
 /* TOP */
 .seg1 {
 
-  top: 5px;
-
+  top: 18px;
   left: 50%;
-
   transform: translateX(-50%);
 
 }
@@ -354,28 +352,24 @@ button {
 /* TOP RIGHT */
 .seg2 {
 
-  top: 55px;
-
-  right: 20px;
+  top: 70px;
+  right: 45px;
 
 }
 
 /* BOTTOM RIGHT */
 .seg3 {
 
-  bottom: 55px;
-
-  right: 20px;
+  bottom: 70px;
+  right: 45px;
 
 }
 
 /* BOTTOM */
 .seg4 {
 
-  bottom: 5px;
-
+  bottom: 18px;
   left: 50%;
-
   transform: translateX(-50%);
 
 }
@@ -383,18 +377,16 @@ button {
 /* BOTTOM LEFT */
 .seg5 {
 
-  bottom: 55px;
-
-  left: 20px;
+  bottom: 70px;
+  left: 45px;
 
 }
 
 /* TOP LEFT */
 .seg6 {
 
-  top: 55px;
-
-  left: 20px;
+  top: 70px;
+  left: 45px;
 
 }
 
