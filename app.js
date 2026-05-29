@@ -330,10 +330,7 @@ const rotation =
     "🎉 Congratulations!";
 
   resultText.innerHTML =
-    "You won an Air Fryer instantly.<br><br>You have also been entered into the grand prize lucky draw.";
-
-  prizeImage.src =
-    "assets/airfryer.jpg";
+    "You have won a Utility Flashlight! instantly.<br><br>You have also been entered into the grand prize lucky draw.";
 
   prizeImage.classList.remove(
     "hidden"
@@ -345,7 +342,7 @@ const rotation =
     "🎉 Congratulations!";
 
   resultText.innerHTML =
-    "You won a Cooler Box instantly.<br><br>You have also been entered into the grand prize lucky draw.";
+    "You have won a DUNLOP branded cap!<br><br>You have also been entered into the grand prize lucky draw.";
 
   prizeImage.classList.add(
     "hidden"
@@ -357,7 +354,7 @@ const rotation =
     "🎉 Congratulations!";
 
   resultText.innerHTML =
-    "You won a Braai Set instantly.<br><br>You have also been entered into the grand prize lucky draw.";
+    "You have won a DUNLOP branded jacket!<br><br>You have also been entered into the grand prize lucky draw.";
 
   prizeImage.classList.add(
     "hidden"
