@@ -66,6 +66,31 @@ const salesRep =
 
       return;
 
+const accountRegex = /^\d{6}$/;
+
+if (!accountRegex.test(accnumber)) {
+
+  alert(
+    "Please enter a valid 6-digit account number."
+  );
+
+  return;
+
+}
+
+      const phoneRegex =
+  /^\+?[0-9]+$/;
+
+if (!phoneRegex.test(phonenumber)) {
+
+  alert(
+    "Please enter a valid cellphone number."
+  );
+
+  return;
+
+}
+      
     }
 
     showScreen("screen2");
@@ -176,6 +201,14 @@ screen2Btn.onclick = () => {
     "SUBMIT ANSWERS";
 
   resetSession();
+
+  const screen2Btn =
+  document.getElementById("screen2Btn");
+
+screen2Btn.innerHTML =
+  "SUBMIT ANSWERS";
+
+screen2Btn.onclick = null;
 
 };
 
