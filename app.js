@@ -51,20 +51,22 @@ const phonenumber =
 const salesRep =
   document.getElementById("salesRep").value;
 
-    if (
+if (
   !name ||
   !storename ||
   !accnumber ||
   !phonenumber ||
   !salesRep ||
-!document.getElementById("termsCheck").checked
+  !document.getElementById("termsCheck").checked
 ) {
 
-      alert(
-        "Please complete all fields."
-      );
+  alert(
+    "Please complete all fields."
+  );
 
-      return;
+  return;
+
+}
 
 const accountRegex = /^\d{6}$/;
 
@@ -78,7 +80,7 @@ if (!accountRegex.test(accnumber)) {
 
 }
 
-      const phoneRegex =
+const phoneRegex =
   /^\+?[0-9]+$/;
 
 if (!phoneRegex.test(phonenumber)) {
@@ -90,12 +92,26 @@ if (!phoneRegex.test(phonenumber)) {
   return;
 
 }
-      
-    }
 
-    showScreen("screen2");
+showScreen("screen2");
 
-  });
+});
+
+document.getElementById("accnumber")
+  .addEventListener("input", function () {
+
+    this.value =
+      this.value.replace(/\D/g, "");
+
+});
+
+document.getElementById("phonenumber")
+  .addEventListener("input", function () {
+
+    this.value =
+      this.value.replace(/[^0-9+]/g, "");
+
+});
 
 /* SCREEN 2 */
 
@@ -185,36 +201,25 @@ if (totalWrong === 0) {
     .classList.remove("hidden");
 
   // CHANGE BUTTON TO CLOSE SESSION
-  const screen2Btn =
-    document.getElementById("screen2Btn");
+document
+  .getElementById("failedCloseBtn")
+  .classList.remove("hidden");
 
-  screen2Btn.innerHTML =
-    "CLOSE SESSION";
-
-  // REMOVE OLD CLICK EVENTS
-  screen2Btn.innerHTML =
-  "CLOSE SESSION";
-
-screen2Btn.onclick = () => {
-
-  screen2Btn.innerHTML =
-    "SUBMIT ANSWERS";
-
-  resetSession();
-
-  const screen2Btn =
-  document.getElementById("screen2Btn");
-
-screen2Btn.innerHTML =
-  "SUBMIT ANSWERS";
-
-screen2Btn.onclick = null;
-
-};
+document
+  .getElementById("screen2Btn")
+  .classList.add("hidden");
 
 }
 
-  });
+});
+
+document
+  .getElementById("failedCloseBtn")
+  .addEventListener("click", () => {
+
+    resetSession();
+
+});
 
 /* SCREEN 3 */
 
@@ -228,10 +233,10 @@ let spinning = false;
 
 const segmentAngles = {
 
-  airfryer: 75,
+  flashlight: 75,
   luckydraw: 195,
-  coolerbox: 135,
-  braaiset: 255
+  cap: 135,
+  jacket: 255
 
 };
 
@@ -432,6 +437,14 @@ function resetSession() {
 document.getElementById("accnumber").value = "";
 document.getElementById("phonenumber").value = "";
 document.getElementById("salesRep").value = "";
+
+document
+  .getElementById("screen2Btn")
+  .classList.remove("hidden");
+
+document
+  .getElementById("failedCloseBtn")
+  .classList.add("hidden");
 
   // RESET TERMS
   document.getElementById("termsCheck").checked = false;
