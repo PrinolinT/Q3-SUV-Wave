@@ -38,8 +38,14 @@ body {
 
 .home-tyre {
 
-  width: 100px;
-  flex-shrink: 0;
+  position: fixed;
+
+  bottom: 20px;
+  left: 20px;
+
+  width: 180px;
+
+  z-index: 2;
 
 }
 
@@ -581,5 +587,15 @@ button {
 .screen1-footer button {
 
   flex: 1;
+
+}
+
+#screen1 input,
+#screen1 select,
+#screen1 button {
+
+  width: 88%;
+  margin-left: auto;
+  margin-right: auto;
 
 }
