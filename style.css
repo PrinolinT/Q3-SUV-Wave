@@ -215,19 +215,17 @@ button {
 
   align-items: center;
 
-  justify-content: center;
+  justify-content: flex-start;
 
   gap: 8px;
+
+  width: 80%;
+
+  margin: 0 auto;
 
 }
 
 .checkbox-group label {
-
-  margin: 0;
-
-}
-
-.terms-link {
 
   white-space: nowrap;
 
@@ -237,7 +235,7 @@ button {
 
   width: auto;
 
-  margin-top: 3px;
+  margin-top: 0;
 
 }
 
@@ -256,6 +254,8 @@ button {
   cursor: pointer;
 
   color: #f7d117;
+
+  white-space: nowrap;
 
 }
 
