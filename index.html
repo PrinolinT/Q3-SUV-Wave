@@ -38,24 +38,6 @@
     <!-- SCREEN 1 -->
     <!-- Customer Details -->
 
-	  <div class="screen1-layout">
-
-  <div class="home-tyre">
-
-    <img
-      src="assets/rt01-tyre.png"
-      alt="R/T01 Tyre"
-    >
-
-  </div>
-
-  <div class="home-form">
-
-    <!-- existing form fields -->
-
-  </div>
-
-</div>
 	  
     <section id="screen1" class="screen active">
 
@@ -179,6 +161,15 @@
   >
     Terms & Conditions
   </span>
+
+</div>
+
+<div class="home-tyre">
+
+  <img
+    src="assets/rt01-tyre.png"
+    alt="R/T01 Tyre"
+  >
 
 </div>
 
@@ -321,68 +312,69 @@
 
 </div>
 
-      <p
+<p
   id="quizError"
   class="error-text hidden"
 >
   Unfortunately one or more answers were incorrect. Better luck next time!
 </p>
 
-      <button id="screen2Btn">
-        SUBMIT ANSWERS
-      </button>
+<button
+  id="failedCloseBtn"
+  class="hidden"
+>
+  CLOSE SESSION
+</button>
+
+<button id="screen2Btn">
+  SUBMIT ANSWERS
+</button>
 
     </section>
 
     <!-- SCREEN 3 -->
     <!-- Wheel -->
 
-    <section id="screen3" class="screen hidden">
+<section id="screen3" class="screen hidden">
 
-      <h1>Spin & Win</h1>
+  <h1>Spin & Win</h1>
 
-  <!-- ADD HERE -->
   <div class="wheel-wrapper">
 
     <div class="pointer"></div>
 
     <div id="spinWheel" class="wheel">
 
-		<button id="spinBtn">
-  SPIN
-</button>
-		
-	<div class="wheel-segment seg1">🎁</div>
-<div class="wheel-segment seg2">⭐</div>
-<div class="wheel-segment seg3">🎁</div>
-<div class="wheel-segment seg4">❌</div>
-<div class="wheel-segment seg5">🎁</div>
-<div class="wheel-segment seg6">❌</div>
-
       <img
         src="assets/tyre-wheel.png"
         alt="Spin Wheel"
       >
 
-		<div class="wheel-key">
-
-  <div>
-    🎁 Instant Prize
-  </div>
-
-  <div>
-    ⭐ Lucky Draw Entry
-  </div>
-
-  <div>
-    ❌ No Prize
-  </div>
-
-</div>
-		
-    </div>
+      <div class="wheel-segment seg1">🔦</div>
+<div class="wheel-segment seg2">⭐</div>
+<div class="wheel-segment seg3">🧢</div>
+<div class="wheel-segment seg4">❌</div>
+<div class="wheel-segment seg5">🧥</div>
+<div class="wheel-segment seg6">🔋</div>
 
     </div>
+
+    <button id="spinBtn">
+      SPIN
+    </button>
+
+    <div class="wheel-key">
+
+      <div>🔦 Utility Flashlight</div>
+<div>🧢 Cap</div>
+<div>🧥 Jacket</div>
+<div>⭐ Tablet Lucky Draw Entry</div>
+<div>❌ Unlucky Spin Entry</div>
+<div>🔋 Tablet Lucky Draw Entry</div>
+
+    </div>
+
+  </div>
 
 </section>
 
