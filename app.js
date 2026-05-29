@@ -233,10 +233,10 @@ let spinning = false;
 
 const segmentAngles = {
 
-  flashlight: 75,
-  luckydraw: 135,
-  cap: 195,
-  jacket: 255
+  flashlight: 0,      // top
+  luckydraw: 60,      // top right ⭐
+  cap: 120,           // bottom right 🧢
+  jacket: 240         // bottom left 🧥
 
 };
 
@@ -330,7 +330,7 @@ const rotation =
     "🎉 Congratulations!";
 
   resultText.innerHTML =
-    "You have won a Utility Flashlight! instantly.<br><br>You have also been entered into the grand prize lucky draw.";
+    "You have won a Utility Flashlight!<br><br>You have also been entered into the grand prize lucky draw.";
 
   prizeImage.classList.remove(
     "hidden"
