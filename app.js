@@ -270,6 +270,8 @@ const rotation =
 
 }
 
+window.testSpin = testSpin;
+
 spinBtn.addEventListener(
   "click",
   () => {
