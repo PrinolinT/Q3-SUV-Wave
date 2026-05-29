@@ -8,8 +8,6 @@ from "./firebase.js";
 
 const screens = {
 
-  let participantId = null;
-
   screen1:
     document.getElementById("screen1"),
 
@@ -26,6 +24,8 @@ const screens = {
     document.getElementById("screen5")
 
 };
+
+let participantId = null;
 
 function showScreen(screenId) {
 
@@ -88,10 +88,12 @@ async function saveParticipant(data) {
 
 document
   .getElementById("screen1Btn")
-  .addEventListener("click", () => {
+  .addEventListener(
+    "click",
+    async () => {
 
     const name =
-  document.getElementById("name").value;
+      document.getElementById("name").value;
 
 const storename =
   document.getElementById("storename").value;
@@ -198,7 +200,7 @@ document
   .getElementById("screen2Btn")
   .addEventListener(
   "click",
-  async () => {
+  () => {
 
     // CORRECT ANSWERS
     const answers = {
