@@ -1,4 +1,14 @@
+import {
+  db,
+  collection,
+  addDoc,
+  serverTimestamp
+}
+from "./firebase.js";
+
 const screens = {
+
+  let participantId = null;
 
   screen1:
     document.getElementById("screen1"),
@@ -27,6 +37,50 @@ function showScreen(screenId) {
 
   screens[screenId]
     .classList.remove("hidden");
+
+}
+
+async function saveParticipant(data) {
+
+  try {
+
+    const docRef =
+      await addDoc(
+
+        collection(
+          db,
+          "participants"
+        ),
+
+        {
+          ...data,
+
+          createdAt:
+            serverTimestamp()
+
+        }
+
+      );
+
+    participantId = docRef.id;
+
+    console.log(
+      "Participant saved:",
+      participantId
+    );
+
+    return true;
+
+  } catch (error) {
+
+    console.error(
+      "Firebase Error:",
+      error
+    );
+
+    return false;
+
+  }
 
 }
 
@@ -93,6 +147,31 @@ if (!phoneRegex.test(phonenumber)) {
 
 }
 
+const saved =
+  await saveParticipant({
+
+    name,
+
+    storeName: storename,
+
+    accountNumber: accnumber,
+
+    cellphone: phonenumber,
+
+    salesRep
+
+  });
+
+if (!saved) {
+
+  alert(
+    "Unable to save participant."
+  );
+
+  return;
+
+}
+
 showScreen("screen2");
 
 });
@@ -117,7 +196,9 @@ document.getElementById("phonenumber")
 
 document
   .getElementById("screen2Btn")
-  .addEventListener("click", () => {
+  .addEventListener(
+  "click",
+  async () => {
 
     // CORRECT ANSWERS
     const answers = {
