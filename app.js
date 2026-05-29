@@ -196,16 +196,9 @@ let spinning = false;
 const segmentAngles = {
 
   airfryer: 75,
-  luckydraw: 165,
+  luckydraw: 195,
   coolerbox: 135,
   braaiset: 255
-
-};
-
-window.testAngle = (angle) => {
-
-  wheel.style.transform =
-    `rotate(${3600 + angle}deg)`;
 
 };
 
@@ -288,7 +281,7 @@ const rotation =
 
     // SPIN ANIMATION
     wheel.style.transform =
-      `rotate(${rotation}deg)`;
+  `rotate(${rotation - 60}deg)`;
 
     // WAIT FOR SPIN TO FINISH
     setTimeout(() => {
