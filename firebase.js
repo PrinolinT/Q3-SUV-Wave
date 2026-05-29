@@ -1,13 +1,17 @@
 // firebase.js
 
-import { initializeApp } from "firebase/app";
+import {
+  initializeApp
+}
+from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
 
 import {
   getFirestore,
   collection,
   addDoc,
   serverTimestamp
-} from "firebase/firestore";
+}
+from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 
 const firebaseConfig = {
 
