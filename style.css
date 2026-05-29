@@ -36,14 +36,6 @@ body {
 
 }
 
-.screen1-layout {
-
-  display: flex;
-  gap: 15px;
-  align-items: flex-start;
-
-}
-
 .home-tyre {
 
   width: 100px;
@@ -55,12 +47,6 @@ body {
 
   width: 100%;
   height: auto;
-
-}
-
-.home-form {
-
-  flex: 1;
 
 }
 
@@ -269,8 +255,6 @@ button {
   position: relative;
 
   width: 320px;
-
-  height: 320px;
 
   margin: 30px auto;
 
