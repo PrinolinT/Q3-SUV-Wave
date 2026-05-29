@@ -84,9 +84,25 @@ body {
 
   gap: 8px;
 
-  text-align: center;
+  padding: 15px;
+
+  background: rgba(0,0,0,0.4);
+
+  border-radius: 12px;
+
+  text-align: left;
 
   font-size: 15px;
+
+}
+
+.wheel-key div {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
 
 }
 
@@ -255,6 +271,7 @@ button {
   position: relative;
 
   width: 320px;
+  height: 320px;
 
   margin: 30px auto;
 
@@ -262,8 +279,8 @@ button {
 
 .wheel {
 
-  width: 100%;
-  height: 100%;
+  width: 320px;
+  height: 320px;
   border-radius: 50%;
   overflow: hidden;
 
@@ -550,5 +567,19 @@ button {
   border-radius: 12px;
 
   padding: 10px;
+
+}
+
+.screen1-footer {
+
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+}
+
+.screen1-footer button {
+
+  flex: 1;
 
 }
