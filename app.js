@@ -234,9 +234,9 @@ let spinning = false;
 const segmentAngles = {
 
   flashlight: 75,
-  luckydraw: 255,
-  cap: 135,
-  jacket: 195
+  luckydraw: 135,
+  cap: 195,
+  jacket: 255
 
 };
 
