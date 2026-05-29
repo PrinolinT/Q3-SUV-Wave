@@ -293,15 +293,15 @@ let outcome;
 
 if (random < 0.05) {
 
-  outcome = "airfryer";
+  outcome = "flashlight";
 
 } else if (random < 0.10) {
 
-  outcome = "coolerbox";
+  outcome = "cap";
 
 } else if (random < 0.15) {
 
-  outcome = "braaiset";
+  outcome = "jacket";
 
 } else {
 
@@ -324,7 +324,7 @@ const rotation =
     // WAIT FOR SPIN TO FINISH
     setTimeout(() => {
 
-      if (outcome === "airfryer") {
+      if (outcome === "flashlight") {
 
   resultTitle.innerHTML =
     "🎉 Congratulations!";
@@ -339,7 +339,7 @@ const rotation =
     "hidden"
   );
 
-} else if (outcome === "coolerbox") {
+} else if (outcome === "cap") {
 
   resultTitle.innerHTML =
     "🎉 Congratulations!";
@@ -351,7 +351,7 @@ const rotation =
     "hidden"
   );
 
-} else if (outcome === "braaiset") {
+} else if (outcome === "jacket") {
 
   resultTitle.innerHTML =
     "🎉 Congratulations!";
