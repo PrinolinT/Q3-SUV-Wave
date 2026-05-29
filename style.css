@@ -211,17 +211,12 @@ button {
 
 .checkbox-group {
 
-  display: flex;
-
-  align-items: center;
-
-  justify-content: flex-start;
-
-  gap: 8px;
-
   width: 80%;
-
   margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
 
 }
 
@@ -234,8 +229,7 @@ button {
 .checkbox-group input {
 
   width: auto;
-
-  margin-top: 0;
+  margin: 0;
 
 }
 
@@ -590,7 +584,7 @@ button {
 
 }
 
-#screen1 input,
+#screen1 input:not([type="checkbox"]),
 #screen1 select {
 
   width: 80%;
