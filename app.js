@@ -202,6 +202,13 @@ const segmentAngles = {
 
 };
 
+window.testAngle = (angle) => {
+
+  wheel.style.transform =
+    `rotate(${3600 + angle}deg)`;
+
+};
+
 function testSpin(outcome) {
 
   if (spinning) return;
