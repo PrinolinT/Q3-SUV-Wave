@@ -43,7 +43,7 @@ body {
   bottom: 20px;
   left: 20px;
 
-  width: 180px;
+  width: 130px;
 
   z-index: 2;
 
@@ -213,9 +213,11 @@ button {
 
   display: flex;
 
-  align-items: flex-start;
+  align-items: center;
 
   gap: 10px;
+
+  flex-wrap: nowrap;
 
 }
 
@@ -576,23 +578,16 @@ button {
 
 }
 
-.screen1-footer {
-
-  display: flex;
-  align-items: center;
-  gap: 15px;
-
-}
-
-.screen1-footer button {
-
-  flex: 1;
-
-}
-
 #screen1 input,
-#screen1 select,
-#screen1 button {
+#screen1 select {
+
+  width: 88%;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+#screen1 #screen1Btn {
 
   width: 88%;
   margin-left: auto;
