@@ -106,6 +106,61 @@ async function loadDashboard() {
     ).innerText =
       inventory.jacket;
 
+    // WINNERS TABLE
+
+const winnersBody =
+  document.querySelector(
+    "#winnersTable tbody"
+  );
+
+winnersBody.innerHTML = "";
+
+for (
+  const resultDoc
+  of gameResultsSnapshot.docs
+) {
+
+  const result =
+    resultDoc.data();
+
+  if (
+    result.outcome &&
+    result.outcome !==
+      "luckydraw"
+  ) {
+
+    const participantDoc =
+      await getDoc(
+
+        doc(
+          db,
+          "participants",
+          result.participantId
+        )
+
+      );
+
+    if (
+      participantDoc.exists()
+    ) {
+
+      const participant =
+        participantDoc.data();
+
+      winnersBody.innerHTML += `
+        <tr>
+          <td>${participant.name}</td>
+          <td>${participant.storeName}</td>
+          <td>${result.outcome}</td>
+        </tr>
+      `;
+
+    }
+
+  }
+
+}
+
   } catch (error) {
 
     console.error(
