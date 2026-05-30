@@ -2,6 +2,8 @@ import {
   db,
   collection,
   addDoc,
+  doc,
+  setDoc,
   serverTimestamp
 }
 from "./firebase.js";
@@ -26,6 +28,16 @@ const screens = {
 };
 
 let participantId = null;
+
+let gameResult = {
+
+  passedQuiz: false,
+
+  outcome: null,
+
+  enteredLuckyDraw: false
+
+};
 
 function showScreen(screenId) {
 
@@ -79,6 +91,53 @@ async function saveParticipant(data) {
     );
 
     return false;
+
+  }
+
+}
+
+async function saveGameResult() {
+
+  try {
+
+    await setDoc(
+
+      doc(
+        db,
+        "gameResults",
+        participantId
+      ),
+
+      {
+
+        participantId,
+
+        passedQuiz:
+          gameResult.passedQuiz,
+
+        outcome:
+          gameResult.outcome,
+
+        enteredLuckyDraw:
+          gameResult.enteredLuckyDraw,
+
+        createdAt:
+          serverTimestamp()
+
+      }
+
+    );
+
+    console.log(
+      "Game Result Saved"
+    );
+
+  } catch (error) {
+
+    console.error(
+      "Game Result Error:",
+      error
+    );
 
   }
 
@@ -274,6 +333,8 @@ document
     // FINAL RESULT
 if (totalWrong === 0) {
 
+  gameResult.passedQuiz = true;
+
   showScreen("screen3");
 
 } else {
@@ -409,7 +470,13 @@ const rotation =
     // WAIT FOR SPIN TO FINISH
     setTimeout(() => {
 
-      if (outcome === "flashlight") {
+  gameResult.outcome =
+    outcome;
+
+  gameResult.enteredLuckyDraw =
+    true;
+
+  if (outcome === "flashlight") {
 
   resultTitle.innerHTML =
     "🎉 Congratulations!";
@@ -461,7 +528,9 @@ const rotation =
 
       spinning = false;
 
-      showScreen("screen4");
+saveGameResult();
+
+showScreen("screen4");
 
     }, 4000);
 
