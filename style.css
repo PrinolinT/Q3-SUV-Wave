@@ -450,9 +450,15 @@ button {
 
 #prizeImage {
 
-  width: 100%;
+  width: 60%;
+
+  max-width: 220px;
+
+  height: auto;
 
   border-radius: 16px;
+
+  margin-top: 10px;
 
 }
 
