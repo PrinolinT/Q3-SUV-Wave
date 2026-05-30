@@ -460,7 +460,9 @@ document
 
 document
   .getElementById("failedCloseBtn")
-  .addEventListener("click", () => {
+  .addEventListener("click", async () => {
+
+    await saveGameResult();
 
     resetSession();
 
