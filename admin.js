@@ -267,6 +267,34 @@ document
 
     return {
 
+      Name:
+        data.name,
+
+      Store:
+        data.storeName,
+
+      AccountNumber:
+        data.accountNumber,
+
+      Cellphone:
+        data.cellphone,
+
+      SalesRep:
+        data.salesRep,
+
+      DateTime:
+        data.createdAt
+          ? data.createdAt
+              .toDate()
+              .toLocaleString()
+          : ""
+
+    };
+
+  });
+
+    return {
+
       Name: data.name,
       Store: data.storeName,
       AccountNumber: data.accountNumber,
@@ -310,39 +338,65 @@ document
           doc => doc.data()
         );
 
-      const winners =
-        gameResults.filter(
-          result =>
-            result.outcome &&
-            result.outcome !==
-              "luckydraw"
-        );
+     const winners = [];
 
-      const failedQuiz =
-        gameResults.filter(
-          result =>
-            result.passedQuiz === false
-        );
+for (const result of gameResults) {
 
-      const luckyDraw =
-        gameResults.filter(
-          result =>
-            result.enteredLuckyDraw === true
-        );
+  if (
+    result.outcome &&
+    result.outcome !== "luckydraw"
+  ) {
 
-      // WINNERS
-
-      const winnersSheet =
-        XLSX.utils.json_to_sheet(
-          winners
-        );
-
-      XLSX.utils.book_append_sheet(
-        workbook,
-        winnersSheet,
-        "Winners"
+    const participantDoc =
+      await getDoc(
+        doc(
+          db,
+          "participants",
+          result.participantId
+        )
       );
 
+    if (participantDoc.exists()) {
+
+      const participant =
+        participantDoc.data();
+
+      winners.push({
+
+        Name:
+          participant.name,
+
+        Store:
+          participant.storeName,
+
+        Prize:
+          result.outcome,
+
+        DateTime:
+          result.createdAt
+            ? result.createdAt
+                .toDate()
+                .toLocaleString()
+            : ""
+
+      });
+
+    }
+
+  }
+
+}
+
+const winnersSheet =
+  XLSX.utils.json_to_sheet(
+    winners
+  );
+
+XLSX.utils.book_append_sheet(
+  workbook,
+  winnersSheet,
+  "Winners"
+);
       // LUCKY DRAW
 
       const luckyDrawSheet =
