@@ -260,7 +260,7 @@ document
           )
         );
 
-      const participants =
+     const participants =
   participantsSnapshot.docs.map(doc => {
 
     const data = doc.data();
@@ -293,35 +293,16 @@ document
 
   });
 
-    return {
+const participantsSheet =
+  XLSX.utils.json_to_sheet(
+    participants
+  );
 
-      Name: data.name,
-      Store: data.storeName,
-      AccountNumber: data.accountNumber,
-      Cellphone: data.cellphone,
-      SalesRep: data.salesRep,
-
-      DateTime:
-        data.createdAt
-          ? data.createdAt
-              .toDate()
-              .toLocaleString()
-          : ""
-
-    };
-
-  });
-
-      const participantsSheet =
-        XLSX.utils.json_to_sheet(
-          participants
-        );
-
-      XLSX.utils.book_append_sheet(
-        workbook,
-        participantsSheet,
-        "Participants"
-      );
+XLSX.utils.book_append_sheet(
+  workbook,
+  participantsSheet,
+  "Participants"
+);
 
       // GAME RESULTS
 
@@ -337,6 +318,18 @@ document
         gameResultsSnapshot.docs.map(
           doc => doc.data()
         );
+
+      const failedQuiz =
+  gameResults.filter(
+    result =>
+      result.passedQuiz === false
+  );
+
+const luckyDraw =
+  gameResults.filter(
+    result =>
+      result.enteredLuckyDraw === true
+  );
 
      const winners = [];
 
