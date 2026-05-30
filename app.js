@@ -562,6 +562,9 @@ const rotation =
 
   if (outcome === "flashlight") {
 
+    prizeImage.src =
+  "assets/flashlight.png";
+
   resultTitle.innerHTML =
     "🎉 Congratulations!";
 
@@ -569,10 +572,13 @@ const rotation =
     "You have won a Utility Flashlight!<br><br>You have also been entered into the grand prize lucky draw.";
 
   prizeImage.classList.remove(
-    "hidden"
-  );
+  "hidden"
+);
 
 } else if (outcome === "cap") {
+
+    prizeImage.src =
+  "assets/cap.png";
 
   resultTitle.innerHTML =
     "🎉 Congratulations!";
@@ -580,11 +586,14 @@ const rotation =
   resultText.innerHTML =
     "You have won a DUNLOP branded cap!<br><br>You have also been entered into the grand prize lucky draw.";
 
-  prizeImage.classList.add(
-    "hidden"
-  );
+  prizeImage.classList.remove(
+  "hidden"
+);
 
 } else if (outcome === "jacket") {
+
+    prizeImage.src =
+  "assets/jacket.png";
 
   resultTitle.innerHTML =
     "🎉 Congratulations!";
@@ -592,9 +601,9 @@ const rotation =
   resultText.innerHTML =
     "You have won a DUNLOP branded jacket!<br><br>You have also been entered into the grand prize lucky draw.";
 
-  prizeImage.classList.add(
-    "hidden"
-  );
+  prizeImage.classList.remove(
+  "hidden"
+);
 
 } else {
 
