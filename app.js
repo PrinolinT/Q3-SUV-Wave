@@ -723,8 +723,22 @@ document
   document.getElementById("prizeImage")
     .classList.add("hidden");
 
-  // RETURN TO SCREEN 1
-  showScreen("screen1");
+  gameResult = {
+
+  passedQuiz: false,
+
+  outcome: null,
+
+  enteredLuckyDraw: false,
+
+  incorrectQuestions: []
+
+};
+
+participantId = null;
+
+// RETURN TO SCREEN 1
+showScreen("screen1");
 
 }
 
