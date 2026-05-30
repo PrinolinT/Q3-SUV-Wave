@@ -12,6 +12,7 @@ import {
   doc,
   setDoc,
   getDoc,
+  getDocs,
   updateDoc,
   serverTimestamp
 }
@@ -44,6 +45,7 @@ export {
   doc,
   setDoc,
   getDoc,
+  getDocs,
   updateDoc,
   serverTimestamp
 };
