@@ -507,7 +507,7 @@ window.testSpin = testSpin;
 
 spinBtn.addEventListener(
   "click",
-  () => {
+  async () => {
 
     if (spinning) return;
 
@@ -522,28 +522,9 @@ spinBtn.addEventListener(
     const prizeImage =
       document.getElementById("prizeImage");
 
-    const random = Math.random();
-
-let outcome;
-
-if (random < 0.05) {
-
-  outcome = "flashlight";
-
-} else if (random < 0.10) {
-
-  outcome = "cap";
-
-} else if (random < 0.15) {
-
-  outcome = "jacket";
-
-} else {
-
-  outcome = "luckydraw";
-
-}
-
+const outcome =
+  await drawPrize();
+    
 const baseRotation = 3600;
 
 const targetAngle =
