@@ -145,6 +145,93 @@ async function saveGameResult() {
 
 }
 
+async function drawPrize() {
+
+  const inventoryRef =
+    doc(
+      db,
+      "prizePool",
+      "inventory"
+    );
+
+  const snapshot =
+    await getDoc(
+      inventoryRef
+    );
+
+  if (!snapshot.exists()) {
+
+    console.error(
+      "Inventory document missing"
+    );
+
+    return "luckydraw";
+
+  }
+
+  const inventory =
+    snapshot.data();
+
+  const prizePool = [];
+
+  for (
+    let i = 0;
+    i < inventory.flashlight;
+    i++
+  ) {
+    prizePool.push(
+      "flashlight"
+    );
+  }
+
+  for (
+    let i = 0;
+    i < inventory.cap;
+    i++
+  ) {
+    prizePool.push(
+      "cap"
+    );
+  }
+
+  for (
+    let i = 0;
+    i < inventory.jacket;
+    i++
+  ) {
+    prizePool.push(
+      "jacket"
+    );
+  }
+
+  if (
+    prizePool.length === 0
+  ) {
+
+    return "luckydraw";
+
+  }
+
+  const outcome =
+    prizePool[
+      Math.floor(
+        Math.random() *
+        prizePool.length
+      )
+    ];
+
+  await updateDoc(
+    inventoryRef,
+    {
+      [outcome]:
+        inventory[outcome] - 1
+    }
+  );
+
+  return outcome;
+
+}
+
 /* SCREEN 1 */
 
 document
