@@ -161,6 +161,73 @@ for (
 
 }
 
+    // MOST MISSED QUESTIONS
+
+const questionCounts = {
+
+  q1: 0,
+  q2: 0,
+  q3: 0,
+  q4: 0,
+  q5: 0,
+  q6: 0
+
+};
+
+gameResultsSnapshot.forEach(doc => {
+
+  const data = doc.data();
+
+  if (
+    data.incorrectQuestions &&
+    Array.isArray(
+      data.incorrectQuestions
+    )
+  ) {
+
+    data.incorrectQuestions
+      .forEach(question => {
+
+        if (
+          questionCounts[
+            question
+          ] !== undefined
+        ) {
+
+          questionCounts[
+            question
+          ]++;
+
+        }
+
+      });
+
+  }
+
+});
+
+const questionsBody =
+  document.querySelector(
+    "#questionsTable tbody"
+  );
+
+questionsBody.innerHTML = "";
+
+Object.entries(
+  questionCounts
+).forEach(
+  ([question, count]) => {
+
+    questionsBody.innerHTML += `
+      <tr>
+        <td>${question}</td>
+        <td>${count}</td>
+      </tr>
+    `;
+
+  }
+);
+
   } catch (error) {
 
     console.error(
@@ -173,3 +240,4 @@ for (
 }
 
 loadDashboard();
+
