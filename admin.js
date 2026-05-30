@@ -261,9 +261,28 @@ document
         );
 
       const participants =
-        participantsSnapshot.docs.map(
-          doc => doc.data()
-        );
+  participantsSnapshot.docs.map(doc => {
+
+    const data = doc.data();
+
+    return {
+
+      Name: data.name,
+      Store: data.storeName,
+      AccountNumber: data.accountNumber,
+      Cellphone: data.cellphone,
+      SalesRep: data.salesRep,
+
+      DateTime:
+        data.createdAt
+          ? data.createdAt
+              .toDate()
+              .toLocaleString()
+          : ""
+
+    };
+
+  });
 
       const participantsSheet =
         XLSX.utils.json_to_sheet(
