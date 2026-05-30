@@ -241,3 +241,191 @@ Object.entries(
 
 loadDashboard();
 
+document
+  .getElementById("exportExcel")
+  .addEventListener(
+    "click",
+    async () => {
+
+      const workbook =
+        XLSX.utils.book_new();
+
+      // PARTICIPANTS
+
+      const participantsSnapshot =
+        await getDocs(
+          collection(
+            db,
+            "participants"
+          )
+        );
+
+      const participants =
+        participantsSnapshot.docs.map(
+          doc => doc.data()
+        );
+
+      const participantsSheet =
+        XLSX.utils.json_to_sheet(
+          participants
+        );
+
+      XLSX.utils.book_append_sheet(
+        workbook,
+        participantsSheet,
+        "Participants"
+      );
+
+      // GAME RESULTS
+
+      const gameResultsSnapshot =
+        await getDocs(
+          collection(
+            db,
+            "gameResults"
+          )
+        );
+
+      const gameResults =
+        gameResultsSnapshot.docs.map(
+          doc => doc.data()
+        );
+
+      const winners =
+        gameResults.filter(
+          result =>
+            result.outcome &&
+            result.outcome !==
+              "luckydraw"
+        );
+
+      const failedQuiz =
+        gameResults.filter(
+          result =>
+            result.passedQuiz === false
+        );
+
+      const luckyDraw =
+        gameResults.filter(
+          result =>
+            result.enteredLuckyDraw === true
+        );
+
+      // WINNERS
+
+      const winnersSheet =
+        XLSX.utils.json_to_sheet(
+          winners
+        );
+
+      XLSX.utils.book_append_sheet(
+        workbook,
+        winnersSheet,
+        "Winners"
+      );
+
+      // LUCKY DRAW
+
+      const luckyDrawSheet =
+        XLSX.utils.json_to_sheet(
+          luckyDraw
+        );
+
+      XLSX.utils.book_append_sheet(
+        workbook,
+        luckyDrawSheet,
+        "Lucky Draw"
+      );
+
+      // FAILED QUIZ
+
+      const failedSheet =
+        XLSX.utils.json_to_sheet(
+          failedQuiz
+        );
+
+      XLSX.utils.book_append_sheet(
+        workbook,
+        failedSheet,
+        "Failed Quiz"
+      );
+
+      // MISSED QUESTIONS
+
+      const questionCounts = {
+
+        q1: 0,
+        q2: 0,
+        q3: 0,
+        q4: 0,
+        q5: 0,
+        q6: 0
+
+      };
+
+      gameResults.forEach(
+        result => {
+
+          if (
+            result.incorrectQuestions
+          ) {
+
+            result
+              .incorrectQuestions
+              .forEach(
+                question => {
+
+                  questionCounts[
+                    question
+                  ]++;
+
+                }
+              );
+
+          }
+
+        }
+      );
+
+      const questionsSummary =
+        Object.entries(
+          questionCounts
+        ).map(
+          ([question, count]) => ({
+
+            Question:
+              question,
+
+            IncorrectCount:
+              count
+
+          })
+        );
+
+      const questionsSheet =
+        XLSX.utils.json_to_sheet(
+          questionsSummary
+        );
+
+      XLSX.utils.book_append_sheet(
+        workbook,
+        questionsSheet,
+        "Question Summary"
+      );
+
+      const now =
+        new Date();
+
+      const timestamp =
+        now
+          .toISOString()
+          .replace(/[:]/g, "-")
+          .split(".")[0];
+
+      XLSX.writeFile(
+        workbook,
+        `Q3_SUV_Wave_Report_${timestamp}.xlsx`
+      );
+
+    }
+  );
