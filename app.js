@@ -4,6 +4,8 @@ import {
   addDoc,
   doc,
   setDoc,
+  getDoc,
+  updateDoc,
   serverTimestamp
 }
 from "./firebase.js";
