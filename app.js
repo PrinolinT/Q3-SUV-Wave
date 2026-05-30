@@ -37,7 +37,9 @@ let gameResult = {
 
   outcome: null,
 
-  enteredLuckyDraw: false
+  enteredLuckyDraw: false,
+
+  incorrectQuestions: []
 
 };
 
@@ -122,6 +124,9 @@ async function saveGameResult() {
 
         enteredLuckyDraw:
           gameResult.enteredLuckyDraw,
+
+        incorrectQuestions:
+  gameResult.incorrectQuestions,
 
         createdAt:
           serverTimestamp()
@@ -424,9 +429,16 @@ if (totalWrong === 0) {
 
   gameResult.passedQuiz = true;
 
+  gameResult.incorrectQuestions = [];
+
   showScreen("screen3");
 
 } else {
+
+  gameResult.passedQuiz = false;
+
+gameResult.incorrectQuestions =
+  wrongQuestions;
 
   // SHOW ERROR MESSAGE
   document
